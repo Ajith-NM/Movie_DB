@@ -1,0 +1,33 @@
+<section>
+  <div class="filter">
+    @if(media_type==="tv"){
+    <h2>Popular Tv Shows</h2>
+    } @else{
+    <h2>Popular Movies</h2>
+    }
+
+    <app-filter (Genres)="genres($event)" (Language)="language($event)"></app-filter>
+  </div>
+  <div class="movies">
+    <div class="all-movies">
+      @for(media of allMedia; track media.id; ) {
+      <div class="movie-card" (click)="getMovie(media.id)">
+        <div class="image">
+          <img
+            [src]="imageurl + media.poster_path"
+            [alt]="media.name || media.title"
+            alt=""
+          />
+        </div>
+        <div class="movie-details">
+          <p>{{ media.name || media.title }}</p>
+          <span>{{ media.release_date || media.first_air_date }}</span>
+        </div>
+      </div>
+      }
+    </div>
+    <div class="load-more" (click)="loadMore()">
+      <p>Load more..</p>
+    </div>
+  </div>
+</section>

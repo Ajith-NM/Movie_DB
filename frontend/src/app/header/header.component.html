@@ -1,0 +1,50 @@
+<header>
+  <nav>
+    <div class="left">
+      <div class="logo">
+        <svg
+          width="35px"
+          height="35px"
+          viewBox="0 0 192 192"
+          xmlns="http://www.w3.org/2000/svg"
+          xml:space="preserve"
+          fill="none"
+          stroke="#ffffff"
+        >
+          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+          <g
+            id="SVGRepo_tracerCarrier"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          ></g>
+          <g id="SVGRepo_iconCarrier">
+            <path
+              d="m88.278 49.408 82.223 49.333-126.074 71.26V22h21.925v109.63l60.298-32.89-38.37-21.926Z"
+              style="
+                fill: none;
+                fill-opacity: 1;
+                stroke: #e50a15;
+                stroke-width: 12;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-miterlimit: 5;
+                stroke-dasharray: none;
+                stroke-opacity: 1;
+              "
+            ></path>
+          </g>
+        </svg>
+        <p>film <span>studio</span></p>
+      </div>
+      <ul>
+        <li [routerLink]="['/user/home']" [routerLinkActive]="'active'">Home</li>
+        <li [routerLink]="['/user/videos/movie']" [routerLinkActive]="'active'">Movies</li>
+        <li [routerLink]="['/user/videos/tv']" [routerLinkActive]="'active'">TV Shows</li>
+      </ul>
+    </div>
+    <div class="right">
+     <button (click)="logOut()">LogOut</button>
+    </div>
+  </nav>
+</header>
+<router-outlet></router-outlet>

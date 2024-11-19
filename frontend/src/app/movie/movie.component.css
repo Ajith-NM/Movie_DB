@@ -1,0 +1,227 @@
+section {
+  color: #fff;
+}
+
+section .movie {
+  min-height: 517px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 100%;
+  width: 100vw;
+  overflow: hidden;
+}
+.poster {
+  width: 300px;
+  height: 450px;
+  margin: 0 2% 0 3%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 2px 2px 5px #969696, -2px -2px 5px #969696;
+}
+.movie-details {
+  max-width: 800px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.movie-details h2 {
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.genres {
+  display: flex;
+  gap: 8px;
+}
+.movie-details .genres span {
+  font-weight: 400;
+  font-size: 12px;
+  font-style: italic;
+}
+.movie-details button,
+.card.media .image button {
+  min-width: 70px;
+  max-width: fit-content;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #fff;
+  border: 2px solid rgba(240, 248, 255, 0.645);
+  cursor: pointer;
+  background-color: rgba(147, 146, 146, 0.645);
+}
+.movie-details button span ,
+.card.media .image button span {
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+  margin: 0;
+}
+.movie .bgimage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* filter: blur(1px); */
+  /* transform: translate(-4px, -4px); */
+  z-index: -2;
+}
+.movie .bgimage::after {
+  content: "";
+  position: absolute;
+  width: 103%;
+  height: 103%;
+  inset: 0 0 0 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  outline: none;
+}
+
+.movie-details .overview span {
+  font-size: 22px;
+  font-weight: 300;
+  font-style: normal;
+  text-transform: capitalize;
+}
+.movie-details .overview p {
+  font-size: 14px;
+  margin-top: 10px;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.movie-slider {
+  margin-top: 20px;
+  width: 100vw;
+  overflow: hidden;
+}
+.movie-slider h2 {
+  font-size: 19px;
+  font-weight: 500;
+  padding-left: 3%;
+  width: fit-content;
+  color: #000000;
+  text-transform: capitalize;
+}
+.movie-slider h2:hover {
+  color: var(--primary-color);
+}
+.scroller {
+  width: 100%;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: flex-start;
+
+  flex-flow: row;
+  -webkit-box-align: end;
+  overflow-x: auto;
+  padding-left: 3%;
+}
+.scroller p{
+  color: var(--primary-color);
+}
+.scroller::-webkit-scrollbar {
+  height: 0;
+}
+.card {
+  min-width: 135px;
+  height: 225px;
+  margin: 5px 0 10px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 2px 2px 5px #969696;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.card.media {
+  min-width: 350px;
+  max-width: 360px;
+  height: 275px;
+}
+
+.card .image {
+  height: 170px;
+  width: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+  
+}
+.card.media .image {
+  height: 225px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card.media .image button{
+position: absolute;
+}
+.movie-title {
+  width: 100%;
+  height: 48px;
+  overflow: hidden;
+  padding: 2px 0 0 8px;
+}
+.movie-title p {
+  font-size: 14px;
+  color: #636262;
+}
+.hr-line {
+  width: calc(100% - 2%);
+  height: 1px;
+  background-color: #e4e1e1;
+  margin: 10px auto;
+}
+.suggestion {
+  width: 150px;
+  height: 225px;
+}
+.card.suggestion .image {
+  min-height: 225px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.card.suggestion:hover .movie-title {
+  transform: translateY(-100%);
+  opacity: 1;
+  filter: blur(0px);
+  z-index: 1;
+}
+.card.suggestion:hover .image::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+.suggestion .movie-title {
+  width: 100%;
+  height: fit-content;
+  padding: 8px;
+  opacity: 0;
+  /* filter: blur(3px); */
+  transition: 0.5s;
+}
+.suggestion .movie-title span {
+  color: #aeacac;
+  font-size: 12px;
+}
+.suggestion .movie-title p {
+  max-height:90px ;
+  color: #e3e1e1;
+ 
+  overflow: hidden;
+}
