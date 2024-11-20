@@ -57,7 +57,7 @@ export class MovieComponent {
   }
   playTrailer() {
     const id = this.videos[0].key;
-    this.route.navigateByUrl(`/play/${id}`);
+    this.route.navigateByUrl(`user/play/${id}`);
   }
   getMovie(media: string, id: string) {
     const params = `${media}/${id}`;

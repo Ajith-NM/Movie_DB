@@ -1,5 +1,6 @@
 @defer{
 <section>
+  @if(content) {
   <div class="movie">
     <div class="bgimage">
       <img
@@ -22,6 +23,7 @@
         <span>{{ genres.name }},</span>
         }
       </div>
+      @if(videos[0]){
       <button (click)="playTrailer()">
         <span>
           <svg
@@ -61,6 +63,7 @@
         </span>
         play
       </button>
+    }
       <div class="overview">
         <span>overview</span>
         <p>
@@ -167,6 +170,9 @@
       }
     </div>
   </div>
+}@else {
+  <p  style="color: black;">*Something wrong</p>
+}
 </section>
 }
 @loading(minimum 250ms){
