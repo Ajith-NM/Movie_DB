@@ -84,9 +84,7 @@ export class FilterComponent implements OnInit ,OnDestroy{
   ngOnInit(): void {
     this.tmdbService.getGenres.subscribe((data) => {
         this.selected_language ='';
-      
       this.genres = data.genres;
-      console.log(this.genres);
     });
   }
 

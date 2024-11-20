@@ -1,0 +1,44 @@
+section {
+  min-height: calc(100vh - 62px);
+}
+section,
+.gif,
+.contens{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.gif {
+  width: 50%;
+  min-width: 664px;
+  height: 400px;
+  background-image: url("https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif");
+  background-position: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+h2 {
+  font-size: 60px;
+  font-family: "Spicy Rice", serif;
+  font-weight: 300;
+}
+h5 {
+  font-family: "Spicy Rice", serif;
+  font-size: 35px;
+  font-weight: 300;
+}
+p {
+  font-family: "Spicy Rice", serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+button{
+    padding: 5px 10px;
+    border: 2px solid #0a8523;
+    border-radius: 10px;
+    margin-top: 20px;
+    background-color: transparent;
+}
+

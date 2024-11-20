@@ -88,6 +88,10 @@ button {
   border-radius: 5px;
   background-color: var(--primary-color);
   color: #ffffff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .autologin {
   margin-top: 15px;

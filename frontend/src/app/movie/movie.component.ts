@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { ApiService } from '../api.service';
-import { tmdb_base_image_url,tmdb_base_video_url1,tmdb_base_video_url2 } from '../constants/tmdb_constants';
+import { environment } from '../../environments/environment';
+import { LoadingComponent } from '../loading/loading.component';
 
 
 @Component({
   selector: 'app-movie',
   standalone: true,
-  imports: [],
+  imports: [LoadingComponent],
   templateUrl: './movie.component.html',
   styleUrl: './movie.component.css',
 })
@@ -41,9 +42,9 @@ export class MovieComponent {
     });
   }
 
-  imageurl = tmdb_base_image_url;
-  videourl1 = tmdb_base_video_url1;
-  videourl2 = tmdb_base_video_url2;
+  imageurl = environment.tmdb_base_image_url;
+  videourl1 =environment.tmdb_base_video_url1;
+  videourl2 =environment.tmdb_base_video_url2;
   content: any;
   actors: any;
   id: number;
@@ -55,9 +56,8 @@ export class MovieComponent {
     this.route.navigateByUrl(`user/play/${id}`);
   }
   playTrailer() {
-
-    const id=this.videos[0].key
-        this.route.navigateByUrl(`/play/${id}`);
+    const id = this.videos[0].key;
+    this.route.navigateByUrl(`/play/${id}`);
   }
   getMovie(media: string, id: string) {
     const params = `${media}/${id}`;

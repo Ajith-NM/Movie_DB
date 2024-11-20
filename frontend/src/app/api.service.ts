@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tmdb_auth, tmdb_base_url } from './constants/tmdb_constants';
+import { environment } from '../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -18,25 +18,31 @@ export class ApiService {
   // tmdb request header
   headers = new HttpHeaders({
     accept: 'application/json',
-    Authorization: tmdb_auth,
+    Authorization:environment.tmdb_auth,
   });
 
   // get trending all
   getTrendingAll() {
-    return this.http.get(`${tmdb_base_url}/trending/all/day?language=en-US`, {
-      headers: this.headers,
-    });
+    return this.http.get(
+      `${environment.tmdb_base_url}/trending/all/day?language=en-US`,
+      {
+        headers: this.headers,
+      }
+    );
   }
   // upcomming all
   getUpcommingAll() {
-    return this.http.get(`${tmdb_base_url}/movie/upcoming?language=en-US`, {
-      headers: this.headers,
-    });
+    return this.http.get(
+      `${environment.tmdb_base_url}/movie/upcoming?language=en-US`,
+      {
+        headers: this.headers,
+      }
+    );
   }
   // all movies
   getAllMovies() {
     return this.http.get(
-      `${tmdb_base_url}/trending/movie/week?language=en-US`,
+      `${environment.tmdb_base_url}/trending/movie/week?language=en-US`,
       {
         headers: this.headers,
       }
@@ -44,16 +50,19 @@ export class ApiService {
   }
   // all shows
   getAllShows() {
-    return this.http.get(`${tmdb_base_url}/trending/tv/week?language=en-US`, {
-      headers: this.headers,
-    });
+    return this.http.get(
+      `${environment.tmdb_base_url}/trending/tv/week?language=en-US`,
+      {
+        headers: this.headers,
+      }
+    );
   }
 
   //get all movie/show
   getAllMedia(media: string, p: number = 1, lang: string = 'en') {
     // &sort_by=vote_count.desc
     return this.http.get(
-      `${tmdb_base_url}/discover/${media}?page=${p}&sort_by=vote_count.desc&with_original_language=${lang}`,
+      `${environment.tmdb_base_url}/discover/${media}?page=${p}&sort_by=popularity.desc&with_original_language=${lang}`,
       {
         headers: this.headers,
       }
@@ -67,7 +76,7 @@ export class ApiService {
   ) {
     if (g) {
       return this.http.get(
-        `${tmdb_base_url}/discover/${media}?with_genres=${g}&page=${p}&sort_by=vote_count.desc&with_original_language=${lang}`,
+        `${environment.tmdb_base_url}/discover/${media}?with_genres=${g}&page=${p}&sort_by=popularity.desc&with_original_language=${lang}`,
         {
           headers: this.headers,
         }
@@ -75,7 +84,7 @@ export class ApiService {
     }
     else {
       return this.http.get(
-        `${tmdb_base_url}/discover/${media}?page=${p}&sort_by=vote_count.desc&with_original_language=${lang}`,
+        `${environment.tmdb_base_url}/discover/${media}?page=${p}&sort_by=popularity.desc&with_original_language=${lang}`,
         {
           headers: this.headers,
         }
@@ -84,19 +93,25 @@ export class ApiService {
   }
   //get genres of movie/show
   getGenres(media: any) {
-    return this.http.get(`${tmdb_base_url}/genre/${media}/list?language=en`, {
-      headers: this.headers,
-    });
+    return this.http.get(
+      `${environment.tmdb_base_url}/genre/${media}/list?language=en`,
+      {
+        headers: this.headers,
+      }
+    );
   }
   //get movie/show
   getMedia(id: any, media: any) {
-    return this.http.get(`${tmdb_base_url}/${media}/${id}?language=en-US`, {
-      headers: this.headers,
-    });
+    return this.http.get(
+      `${environment.tmdb_base_url}/${media}/${id}?language=en-US`,
+      {
+        headers: this.headers,
+      }
+    );
   }
   getActors(id: any, media: any) {
     return this.http.get(
-      `${tmdb_base_url}/${media}/${id}/credits?language=en-US`,
+      `${environment.tmdb_base_url}/${media}/${id}/credits?language=en-US`,
       {
         headers: this.headers,
       }
@@ -104,7 +119,7 @@ export class ApiService {
   }
   getVideos(id: any, media: any) {
     return this.http.get(
-      `${tmdb_base_url}/${media}/${id}/videos?language=en-US`,
+      `${environment.tmdb_base_url}/${media}/${id}/videos?language=en-US`,
       {
         headers: this.headers,
       }
@@ -112,7 +127,7 @@ export class ApiService {
   }
   getRecommentations(id: any, media: any) {
     return this.http.get(
-      `${tmdb_base_url}/${media}/${id}/recommendations?language=en-US&page=1`,
+      `${environment.tmdb_base_url}/${media}/${id}/recommendations?language=en-US&page=1`,
       {
         headers: this.headers,
       }

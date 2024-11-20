@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import {  Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -8,13 +8,11 @@ import { ActivatedRoute, Router, RouterLink, RouterLinkActive, RouterOutlet } fr
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent implements OnInit{
-  constructor(private router: Router, private activeRoute: ActivatedRoute) {
+export class HeaderComponent{
+  constructor(private router: Router,) {
    
   }
-   ngOnInit(): void {
-  //  console.log(this.router.url);
-   }
+  
   
   logOut() {
     localStorage.removeItem('loggedUser');

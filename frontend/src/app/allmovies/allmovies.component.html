@@ -1,3 +1,5 @@
+
+@defer{
 <section>
   <div class="filter">
     @if(media_type==="tv"){
@@ -31,3 +33,7 @@
     </div>
   </div>
 </section>
+}
+@loading(minimum 250ms){
+<app-loading></app-loading>
+}

@@ -1,96 +1,116 @@
 <section>
   <div class="logo">
-        <svg
-          width="35px"
-          height="35px"
-          viewBox="0 0 192 192"
-          xmlns="http://www.w3.org/2000/svg"
-          xml:space="preserve"
-          fill="none"
-          stroke="#ffffff"
-        >
-          <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-          <g
-            id="SVGRepo_tracerCarrier"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          ></g>
-          <g id="SVGRepo_iconCarrier">
-            <path
-              d="m88.278 49.408 82.223 49.333-126.074 71.26V22h21.925v109.63l60.298-32.89-38.37-21.926Z"
-              style="
-                fill: none;
-                fill-opacity: 1;
-                stroke: #e50a15;
-                stroke-width: 12;
-                stroke-linecap: round;
-                stroke-linejoin: round;
-                stroke-miterlimit: 5;
-                stroke-dasharray: none;
-                stroke-opacity: 1;
-              "
-            ></path>
-          </g>
-        </svg>
-        <p>film <span>studio</span></p>
-      </div>
-  <img src="images/netflix_bg.jpg" alt="background image"> 
+    <svg
+      width="35px"
+      height="35px"
+      viewBox="0 0 192 192"
+      xmlns="http://www.w3.org/2000/svg"
+      xml:space="preserve"
+      fill="none"
+      stroke="#ffffff"
+    >
+      <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+      <g
+        id="SVGRepo_tracerCarrier"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      ></g>
+      <g id="SVGRepo_iconCarrier">
+        <path
+          d="m88.278 49.408 82.223 49.333-126.074 71.26V22h21.925v109.63l60.298-32.89-38.37-21.926Z"
+          style="
+            fill: none;
+            fill-opacity: 1;
+            stroke: #e50a15;
+            stroke-width: 12;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-miterlimit: 5;
+            stroke-dasharray: none;
+            stroke-opacity: 1;
+          "
+        ></path>
+      </g>
+    </svg>
+    <p>film <span>studio</span></p>
+  </div>
+  <img src="images/netflix_bg.jpg" alt="background image" />
   <div class="register">
     @if(isLogin){
-    <form class="login" [formGroup]="loginForm" (ngSubmit)="loginForm.valid&&onLogin()">
-
+    <form
+      class="login"
+      [formGroup]="loginForm"
+      (ngSubmit)="loginForm.valid && onLogin()"
+    >
       <h2>sign in</h2>
 
       <input type="text" placeholder="email" formControlName="email" />
-      <input type="text" placeholder="password"  formControlName="password"/>
+      <input type="text" placeholder="password" formControlName="password" />
       @if(loginForm.get('password').invalid&&loginForm.get('password').touched){
-        <small>* minimun 6 characters required</small>
+      <small>* minimun 6 characters required</small>
       }
-        <small>{{err_msg}}</small>
-      <button type="submit">Sign In</button>
+      <small>{{ err_msg }}</small>
+      <button type="submit">
+        Sign In
+        <div class="loading-anim" [class]="!err_msg && loading?active:''">
+          <div class="loader"></div>
+        </div>
+      </button>
 
       <div class="autologin">
         <p>Need help?</p>
       </div>
 
       <div class="text_contents">
-        <p>New to Film Studio? <span (click)="changeIsLogin()">Sign Up now</span></p>
+        <p>
+          New to Film Studio? <span (click)="changeIsLogin()">Sign Up now</span>
+        </p>
         <p class="texts">
           This page is protected by Google reCAPTCHA to ensure you're not a bot
         </p>
       </div>
-
     </form>
-  }
-  @else{
-    
-    <form class="signup" [formGroup]="signupForm" (ngSubmit)="signupForm.valid&&onSignup()">
+    } @else{
 
-        <h2>sign up</h2>
-        <input type="text" placeholder="username" formControlName="username"/>
-        <input type="text" placeholder="email" formControlName="email"/>
-        <input type="password" placeholder="password" formControlName="password" />
-        @if(signupForm.get('password').invalid&&signupForm.get('password').touched){
-        <small>* minimun 6 characters required</small>
+    <form
+      class="signup"
+      [formGroup]="signupForm"
+      (ngSubmit)="signupForm.valid && onSignup()"
+    >
+      <h2>sign up</h2>
+      <input type="text" placeholder="username" formControlName="username" />
+      <input type="text" placeholder="email" formControlName="email" />
+      <input
+        type="password"
+        placeholder="password"
+        formControlName="password"
+      />
+      @if(signupForm.get('password').invalid&&signupForm.get('password').touched){
+      <small>* minimun 6 characters required</small>
       }
-      <small>{{err_msg}}</small>
-        <button type="submit">Sign Up</button>
-  
-        <div class="autologin">
-          <p>Need help?</p>
+      <small>{{ err_msg }}</small>
+      <button type="submit">
+        Sign Up
+        <div class="loading-anim" [class]="!err_msg && loading?active:''">
+          <div class="loader"></div>
         </div>
-  
-        <div class="text_contents">
-          <p>Already have an account? <span (click)="changeIsLogin()">Sign In now</span></p>
-          <p class="texts">
-            This page is protected by Google reCAPTCHA to ensure you're not a bot
-          </p>
-        </div>
-  
-      </form>
+      </button>
+
+      <div class="autologin">
+        <p>Need help?</p>
+      </div>
+
+      <div class="text_contents">
+        <p>
+          Already have an account?
+          <span (click)="changeIsLogin()">Sign In now</span>
+        </p>
+        <p class="texts">
+          This page is protected by Google reCAPTCHA to ensure you're not a bot
+        </p>
+      </div>
+    </form>
 
     }
   </div>
 </section>
-
-

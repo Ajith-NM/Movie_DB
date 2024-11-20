@@ -3,13 +3,14 @@ import { FilterComponent } from '../filter/filter.component';
 import { ApiService } from '../api.service';
 import { TmdbService } from '../tmdb.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { tmdb_base_image_url } from '../constants/tmdb_constants';
-import { log } from 'node:console';
+import { environment } from '../../environments/environment';
+import { browserRefresh } from '../app.component';
+import { LoadingComponent } from '../loading/loading.component';
 
 @Component({
   selector: 'app-allmovies',
   standalone: true,
-  imports: [FilterComponent],
+  imports: [FilterComponent, LoadingComponent],
   templateUrl: './allmovies.component.html',
   styleUrl: './allmovies.component.css',
 })
@@ -21,11 +22,14 @@ export class AllmoviesComponent implements OnInit {
     private activeRoute: ActivatedRoute
   ) {
     this.activeRoute.params.subscribe((data) => {
-   if (localStorage.getItem('media_type') === data['id']) {
-     this.language_code = localStorage.getItem('language') || 'en';
-   } else {
-     this.language_code = 'en';
-   }
+      if (
+        localStorage.getItem('media_type') === data['id'] &&
+        !browserRefresh
+      ) {
+        this.language_code = localStorage.getItem('language') || 'en';
+      } else {
+        this.language_code = 'en';
+      }
 
       this.media_type = data['id'];
       localStorage.setItem('media_type', data['id']);
@@ -42,7 +46,7 @@ export class AllmoviesComponent implements OnInit {
   page: number = 1;
   genres_type: number = 0;
   language_code: string = 'en';
-  imageurl = tmdb_base_image_url;
+  imageurl = environment.tmdb_base_image_url;
   ngOnInit(): void {
     this.tmdb.getMedia.subscribe((data) => {
       console.log(data.results);
