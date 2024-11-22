@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   tvShows: any[];
   imageurl = environment.tmdb_base_image_url;
   ngOnInit(): void {
+     window.scrollTo(0, 0);
     this.tmdb.getTrending.subscribe((data) => {
       this.trendingAll = data.results;
     });

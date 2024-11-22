@@ -12,7 +12,7 @@ import { LoadingComponent } from '../loading/loading.component';
   templateUrl: './movie.component.html',
   styleUrl: './movie.component.css',
 })
-export class MovieComponent {
+export class MovieComponent implements OnInit{
   constructor(
     private Active: ActivatedRoute,
     private apiService: ApiService,
@@ -42,6 +42,10 @@ export class MovieComponent {
     });
   }
 
+
+  ngOnInit(): void {
+    window.scrollTo(0,0)
+  }
   imageurl = environment.tmdb_base_image_url;
   videourl1 =environment.tmdb_base_video_url1;
   videourl2 =environment.tmdb_base_video_url2;

@@ -48,6 +48,7 @@ export class AllmoviesComponent implements OnInit {
   language_code: string = 'en';
   imageurl = environment.tmdb_base_image_url;
   ngOnInit(): void {
+     window.scrollTo(0, 0);
     this.tmdb.getMedia.subscribe((data) => {
       console.log(data.results);
       // this.language_code = 'en';
